@@ -1,7 +1,7 @@
 // script.js  
 document.addEventListener('DOMContentLoaded', function() {  
     const container = document.getElementById('fireworks-container');  
-    const particleImage = "html\images\烟花.png"; // 粒子图片路径  
+    const particleImage = "images/烟花.png"; // 粒子图片路径  
     let particles = [];  
     
     function createParticle() {  
