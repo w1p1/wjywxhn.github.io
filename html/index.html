@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专属于你的</title>
+    <style>
+        body
+        {
+            background: linear-gradient(to right, pink, white);
+        }
+    </style>
+</head>
+<body>
+    <div class="wenben">
+        <div class="biaoti">
+            生日快乐！
+        </div>
+        <div class="h">
+            <div class="hh">为了确定你是不是这个小网站的主人，请告诉我</div> 
+            <div class="xingming">
+                你的名字是：<input type="text" class="inpp" placeholder="请输入你的名字" class="name" id="nameInput">
+            </div>  
+            <div class="shengri">
+                你的生日是：<input type="text" class="inpp" placeholder="生日,形如1211" class="brithday" id="brithdayInput">
+            </div>
+        </div>
+            <button onclick="showName()" class="anniu">开始验证</button>  
+        <div>
+            <img class="dangao" src="images/蛋糕.png" alt="蛋糕">
+        </div>
+        <div>
+            <img class="dangao1" src="images/1人物.png" alt="蛋糕">
+        </div>
+        <div>
+            <img class="dangao2" src="images/2人物.png" alt="蛋糕">
+        </div>
+        <div>
+            <img class="dangao3" src="images/3人物.png" alt="蛋糕">
+        </div>
+        <div>
+            <img class="dangao4" src="images/4人物.png" alt="蛋糕">
+        </div>
+        <div class="yanhua">
+            <div id="fireworks-container"></div>  
+            <script src="script.js"></script>  
+        </div>
+    </div>
+    <style>
+        #fireworks-container {  
+            position: fixed; /* 或者使用 absolute 并设置 top, right, bottom, left */  
+            top: 0; /* 根据需要调整 */  
+            left: 0; /* 根据需要调整 */  
+            width: 100%; /* 或设置为具体宽度 */  
+            height: 100%; /* 或设置为具体高度 */  
+            pointer-events: none; /* 防止鼠标事件穿透到粒子层下面的元素 */  
+            z-index: 9999; /* 确保粒子层在最上层 */  
+            overflow: hidden;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center; /* 如果需要居中显示烟花效果 */  
+        }
+        .particle {  
+            position: absolute;  
+            width: 20px; /* 根据粒子图片大小调整 */  
+            height: 20px; /* 根据粒子图片大小调整 */  
+            opacity: 0.8;  
+            image-rendering: -moz-crisp-edges; /* Firefox */  
+            image-rendering: -o-crisp-edges; /* Opera */  
+            image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */  
+            image-rendering: crisp-edges; /* CSS3 Proposed */  
+            -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */  
+        }
+        .dangao{
+            width:100px;
+            height: 100px;
+            margin-top: -150px;
+            transform: rotate(345deg);  
+            transition: transform 0.5s ease; /* 平滑过渡效果 */  
+        }
+        .dangao1{
+            position: absolute;
+            width:100px;
+            height: 100px;
+            margin-top: 200px;
+            transform: rotate(345deg);  
+            transform: scaleX(-1);
+            transition: transform 0.5s ease; /* 平滑过渡效果 */  
+        }
+        .dangao2{
+            position: absolute;
+            width:100px;
+            height: 100px;
+            margin-top: 250px;
+            transform: scaleX(-1);
+            margin-left: 100px;
+            transform: rotate(345deg);  
+            transition: transform 0.5s ease; /* 平滑过渡效果 */  
+        }
+        .dangao3{
+            position: absolute;
+            width:100px;
+            height: 100px;
+            margin-top: 10px;
+            margin-left: 60%;
+            transform: rotate(345deg);  
+            transition: transform 0.5s ease; /* 平滑过渡效果 */  
+        }
+        .dangao4{
+            position: absolute;
+            width:100px;
+            height: 100px;
+            margin-top: 250px;
+            margin-left: 60%;
+            transform: rotate(345deg);  
+            transition: transform 0.5s ease; /* 平滑过渡效果 */  
+        }
+        .inpp{
+            height: 25px;
+        }
+        .anniu{
+            color: antiquewhite;
+            background-color: plum;
+            font-size: 15px;
+            border-radius: 5%;
+            display: flex;
+            position: absolute;
+            width: 5%;
+            margin-left:34%;
+            margin-top: 260px;
+            border:1px solid;
+            border-color: pink;
+            cursor:pointer;
+        }
+        .hh{
+            color:rgb(68, 155, 210);
+            position:absolute;
+            font-size: 15px;
+            width:50%;
+            margin-left: 25%;
+            user-select: none;
+        }
+        .xingming {
+            font-size: 25px;
+            display: flex;
+            position: absolute;
+            width: 34%;
+            margin-left:25%;
+            margin-top: 100px;
+         }
+        .shengri{
+            font-size: 25px;
+            display: flex;
+            position: absolute;
+            width: 34%;
+            margin-left:25%;
+            margin-top: 180px;
+        }
+        .biaoti {
+            font-size: 50px;
+            text-align: center;
+            color: pink;
+            padding-top: 30px;
+            user-select: none;
+        }
+        .wenben{
+            width: 70%;
+            height: 500px;
+            margin-left: 15%;
+            margin-top: 200px;
+            background-color: white;
+            border-radius: 5px;
+            user-select: none;
+        }
+    </style>
+</body>
+<script>
+    function showName() {  
+        // 获取input元素  
+        var nameInput = document.getElementById('nameInput');  
+        // 获取用户输入的值  
+        var name = nameInput.value;  
+        // 获取用于显示名字的div元素  
+        var brithdayInput = document.getElementById('brithdayInput');  
+        // 获取用户输入的值  
+        var brithday = brithdayInput.value;
+        if (name == "王静怡" && brithday == "0806") {
+            window.location.href = "two.html"; 
+        } else {
+            alert("你不是这个网站的主人！！！");
+        }  
+    }
+</script>
+</html>
