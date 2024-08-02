@@ -10,6 +10,42 @@
     </style>
 </head>
 <body>
+    
+    <audio id="myAudio" src="music/all.mp3" loop="false" preload="auto"></audio>  
+    <script>
+        let globalStatus = 0;  
+      
+        // 函数来根据globalStatus的值控制音频播放  
+        function manageAudioPlayback() {  
+            const audio = document.getElementById('myAudio');  
+                if (globalStatus === 1) {  
+                    // 如果globalStatus为1，则播放音频  
+                    audio.play()  
+                    .then(() => {  
+                        // 播放成功  
+                        console.log('Audio is playing.');  
+                    })  
+                    .catch((error) => {  
+                        // 播放失败，可能是用户阻止了自动播放  
+                        console.error('Error playing audio:', error);  
+                    });  
+                } else if (!audio.paused) {  
+                // 如果globalStatus不为1且音频正在播放，则暂停  
+                    audio.pause();  
+                    console.log('Audio has been paused.');  
+            }  
+        }  
+      
+        // 函数来更新globalStatus并控制音频播放  
+        function updateGlobalStatus(newStatus) {  
+            globalStatus = newStatus;  
+            manageAudioPlayback(); // 更新后调用函数来控制音频播放  
+        }  
+    
+        document.addEventListener('DOMContentLoaded', () => {
+          updateGlobalStatus(1);
+        });
+      </script>
     <div class="yanhua">
         <div id="fireworks-container"></div>  
         <script src="script.js"></script>  
@@ -32,8 +68,6 @@
             <a href="six.html" style="border-radius: 5px;background-color: pink; text-decoration: none;color:azure;">冬日暖阳</a>
         </div>
     </div>
-</body>
-</html>
     <style>
         .sigeanniu{
             background-color: antiquewhite;

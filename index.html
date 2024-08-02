@@ -10,6 +10,7 @@
             background: linear-gradient(to right, pink, white);
         }
     </style>
+    <script src="zhuanchang.js"></script>  
 </head>
 <body>
     <div class="wenben">
@@ -40,10 +41,6 @@
         </div>
         <div>
             <img class="dangao4" src="html/images/4人物.png" alt="蛋糕">
-        </div>
-        <div class="yanhua">
-            <div id="fireworks-container"></div>  
-            <script src="html/script1.js"></script>  
         </div>
     </div>
     <style>
@@ -174,6 +171,12 @@
         }
     </style>
 </body>
+<script>  
+    // 在这里定义changeStatus函数来调用zhuanchang.js中的setGlobalStatus函数  
+    function changeStatus() {  
+        setGlobalStatus(1); // 调用zhuanchang.js中定义的函数  
+    }  
+</script>  
 <script>
     function showName() {  
         // 获取input元素  
